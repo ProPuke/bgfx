@@ -1025,6 +1025,12 @@ namespace bgfx { namespace gl
 		NULL
 	};
 
+	static const char* s_textureSize[] =
+	{
+		"textureSize",
+		NULL
+	};
+
 	static const char* s_texture3D[] =
 	{
 		"sampler3D",
@@ -6534,6 +6540,7 @@ namespace bgfx { namespace gl
 					const bool usesUint         = !bx::findIdentifierMatch(code, s_uint).isEmpty();
 					const bool usesTexelFetch   = !bx::findIdentifierMatch(code, s_texelFetch).isEmpty();
 					const bool usesTextureArray = !bx::findIdentifierMatch(code, s_textureArray).isEmpty();
+					const bool usesTextureSize  = !bx::findIdentifierMatch(code, s_textureSize).isEmpty();
 					const bool usesTexture3D    = !bx::findIdentifierMatch(code, s_texture3D).isEmpty();
 					const bool usesTextureMS    = !bx::findIdentifierMatch(code, s_ARB_texture_multisample).isEmpty();
 					const bool usesPacking      = !bx::findIdentifierMatch(code, s_ARB_shading_language_packing).isEmpty();
@@ -6541,6 +6548,7 @@ namespace bgfx { namespace gl
 
 					uint32_t version = false
 						|| usesTextureArray
+						|| usesTextureSize
 						|| usesTexture3D
 						|| usesIUsamplers
 						|| usesVertexID
